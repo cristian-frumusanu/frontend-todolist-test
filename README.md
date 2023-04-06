@@ -12,7 +12,7 @@ The point it to see how you code and how you organise your code, your coding sty
 - you don't need to have it up and running online but make sure that we'll be able to run it locally on our devices;
 
 ## Deadline
-Thursday 13th at 12:00PM. But whenever you're done, let us know.
+Thursday 13th of April 2023 at 12:00PM. But whenever you're done, let us know.
 
 ## Liberties
 - you can use whatever tool help you would use on a daily basis, search engines, StackOverflow, documentations of the frameworks, etc. I advise against using ChatGPT or similar;
