@@ -1,6 +1,6 @@
-# The Classic To-Do Frontend App 
+# The Classic To-Do List Frontend App 
 
-The purpose is to create an ToDo list WebApp that will permit the basic CRUD (Create, Read, Update, Delete) operations.
+The purpose is to create an ToDo List WebApp that will permit the basic CRUD (Create, Read, Update, Delete) operations.
 The point it to see how you code and how you organise your code, your coding style, how you commit, etc.
 
 ## Requirements
