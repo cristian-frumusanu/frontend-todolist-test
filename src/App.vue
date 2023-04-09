@@ -1,18 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <header-view />
+
+    <main class="main"></main>
+
+    <footer-view />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import HeaderView from './components/header/HeaderView.vue';
+import FooterView from './components/footer/FooterView.vue';
 
 export default Vue.extend({
   name: 'App',
   components: {
-    HelloWorld,
+    HeaderView,
+    FooterView,
   },
 });
 </script>
