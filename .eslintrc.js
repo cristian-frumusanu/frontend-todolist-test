@@ -1,0 +1,35 @@
+module.exports = {
+  root: true,
+  env: {
+    node: true,
+  },
+  parser: 'vue-eslint-parser',
+  extends: [
+    'plugin:vue/essential',
+    'eslint:recommended',
+    'plugin:vue/recommended',
+    '@vue/typescript/recommended',
+    'plugin:prettier/recommended',
+    '@vue/eslint-config-prettier',
+    '@vue/eslint-config-typescript/recommended',
+  ],
+  parserOptions: {
+    ecmaVersion: 2020,
+    parser: '@typescript-eslint/parser',
+  },
+  plugins: ['@typescript-eslint', 'prettier', 'vue'],
+  rules: {
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'comma-dangle': ['error', 'only-multiline'],
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    'prettier/prettier': ['error', { endOfLine: 'auto' }],
+    '@typescript-eslint/interface-name-prefix': 'off',
+    '@typescript-eslint/ban-ts-comment': 'error',
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/no-explicit-any': 'error',
+    '@typescript-eslint/no-var-requires': 'off',
+  },
+};
