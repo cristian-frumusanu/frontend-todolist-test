@@ -1,17 +1,19 @@
 <template>
   <input
     :id="id"
-    v-model="value"
+    :value="value"
     type="text"
     :name="name"
     :placeholder="placeholder"
     :disabled="disabled"
     :class="classes"
+    @input="onInput"
+    @keyup.enter="onEnter"
   />
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, type PropType } from 'vue';
 
 export default defineComponent({
   name: 'InputView',
@@ -38,11 +40,19 @@ export default defineComponent({
       default: 'border w-full p-1 rounded-sm border-sky-800',
       required: false,
     },
-  },
-  data(): { value: string } {
-    return {
-      value: '',
-    };
+    value: {
+      type: String,
+      default: '',
+      required: false,
+    },
+    onInput: {
+      type: Function as PropType<(payload: Event) => void>,
+      default: () => {},
+    },
+    onEnter: {
+      type: Function as PropType<(payload: Event) => void>,
+      default: () => {},
+    },
   },
 });
 </script>

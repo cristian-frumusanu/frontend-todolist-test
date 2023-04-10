@@ -7,14 +7,15 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue';
 import TaskInput from '../components/molecules/task-input/TaskInput.vue';
 import TaskList from '../components/organisms/task-list/TaskList.vue';
 
-export default {
+export default defineComponent({
   name: 'HomeView',
   components: {
     TaskInput,
     TaskList,
   },
-};
+});
 </script>

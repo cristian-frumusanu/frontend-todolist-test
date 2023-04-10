@@ -14,6 +14,7 @@ import Vue from 'vue';
 import HeaderView from './components/header/HeaderView.vue';
 import FooterView from './components/footer/FooterView.vue';
 import HomeView from './views/HomeView.vue';
+import store from './store/store';
 
 export default Vue.extend({
   name: 'App',
@@ -21,6 +22,10 @@ export default Vue.extend({
     HeaderView,
     HomeView,
     FooterView,
+  },
+  store: store,
+  beforeCreate() {
+    this.$store.commit('initializeStore');
   },
 });
 </script>
