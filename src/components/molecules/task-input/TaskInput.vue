@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import InputView from '../../atoms/input/InputView.vue';
+import InputView from '../../atoms/input-text/InputView.vue';
 import ButtonView from '../../atoms/button/ButtonView.vue';
 
 export default {

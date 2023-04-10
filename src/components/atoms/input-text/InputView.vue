@@ -1,11 +1,16 @@
 <template>
-  <input :id="id" v-model="value" :type="type" :name="name" :placeholder="placeholder" />
+  <input
+    :id="id"
+    v-model="value"
+    type="text"
+    :name="name"
+    :placeholder="placeholder"
+    :disabled="disabled"
+  />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-
-const inputTypes: string[] = ['text', 'checkbox', 'email', 'password'];
 
 export default defineComponent({
   name: 'InputView',
@@ -23,14 +28,12 @@ export default defineComponent({
       required: false,
       default: null,
     },
-    type: {
-      type: String,
-      required: true,
-      default: 'text',
-      validator: (value: string) => inputTypes.includes(value),
+    disabled: {
+      type: Boolean,
+      default: false,
     },
   },
-  data() {
+  data(): { value: string } {
     return {
       value: '',
     };
