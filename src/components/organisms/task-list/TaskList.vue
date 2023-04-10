@@ -14,31 +14,21 @@
 import { defineComponent, type PropType } from 'vue';
 import TaskItem from '../../molecules/task-item/TaskItem.vue';
 
-type Task = {
+export type Task = {
   text: string;
   completed: boolean;
 };
-
-type Props = Task[];
 
 export default defineComponent({
   name: 'TaskList',
   components: {
     TaskItem,
   },
+
   props: {
     tasks: {
-      type: Array as PropType<Props>,
-      default: (): Props => [
-        {
-          text: 'test one',
-          completed: true,
-        },
-        {
-          text: 'test two',
-          completed: false,
-        },
-      ],
+      type: Array as PropType<Task[]>,
+      default: (): Task[] => [],
     },
   },
 });

@@ -1,5 +1,5 @@
 <template>
-  <button :type="type">
+  <button :type="type" @click="onClick">
     <svg :id="iconName" :fill="iconColor" :class="classes">
       <use :href="assetsPath + '#' + iconName"></use>
     </svg>
@@ -35,6 +35,10 @@ export default defineComponent({
       type: String,
       default: 'w-12 h-12',
       required: false,
+    },
+    onClick: {
+      type: Function as PropType<(payload: MouseEvent) => void>,
+      default: () => {},
     },
   },
   data() {
