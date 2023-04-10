@@ -1,5 +1,11 @@
 <template>
-  <input :id="id" :checked="checked" type="checkbox" :name="name" />
+  <input
+    :id="id"
+    :checked="checked"
+    type="checkbox"
+    :name="name"
+    class="w-5 h-5 appearance-none border border-sky-800 rounded-sm checked:bg-cyan-500 checked:p-2"
+  />
 </template>
 
 <script lang="ts">

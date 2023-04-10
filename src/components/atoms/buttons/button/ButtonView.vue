@@ -1,18 +1,12 @@
 <template>
-  <button v-if="iconName === ''" :type="type">
+  <button :type="type">
     {{ text }}
-  </button>
-  <button v-else :type="type">
-    <svg :id="iconName" :fill="iconColor">
-      <use :href="assetsPath + '#' + iconName"></use>
-    </svg>
   </button>
 </template>
 
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue';
-
-export type ButtonType = 'button' | 'submit' | 'reset' | undefined;
+import { ButtonType } from '../button.types';
 
 export default defineComponent({
   name: 'ButtonView',
@@ -26,14 +20,6 @@ export default defineComponent({
       type: String,
       default: '',
       required: false,
-    },
-    iconName: {
-      type: String,
-      default: 'box',
-    },
-    iconColor: {
-      type: String,
-      default: '#000000',
     },
   },
   data() {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="w-full flex flex-col gap-4">
     <task-item
       v-for="(task, index) of tasks"
       :id="index"

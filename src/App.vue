@@ -1,5 +1,8 @@
 <template>
-  <div id="app">
+  <div
+    id="app"
+    class="min-h-screen antialiased text-gray-900 flex flex-col items-center justify-between"
+  >
     <header-view />
     <home-view />
     <footer-view />
@@ -22,13 +25,4 @@ export default Vue.extend({
 });
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style src="./index.css"></style>

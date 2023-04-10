@@ -6,6 +6,7 @@
     :name="name"
     :placeholder="placeholder"
     :disabled="disabled"
+    :class="classes"
   />
 </template>
 
@@ -31,6 +32,11 @@ export default defineComponent({
     disabled: {
       type: Boolean,
       default: false,
+    },
+    classes: {
+      type: String,
+      default: 'border w-full p-1 rounded-sm border-sky-800',
+      required: false,
     },
   },
   data(): { value: string } {
