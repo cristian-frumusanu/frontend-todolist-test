@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <header-view />
-
-    <main class="main"></main>
-
+    <home-view />
     <footer-view />
   </div>
 </template>
@@ -12,11 +10,13 @@
 import Vue from 'vue';
 import HeaderView from './components/header/HeaderView.vue';
 import FooterView from './components/footer/FooterView.vue';
+import HomeView from './views/HomeView.vue';
 
 export default Vue.extend({
   name: 'App',
   components: {
     HeaderView,
+    HomeView,
     FooterView,
   },
 });
