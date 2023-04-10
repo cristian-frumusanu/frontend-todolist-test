@@ -39,7 +39,7 @@ export default defineComponent({
     },
     handleClick() {
       if (this.value) {
-        this.$emit('new-task', this.value);
+        this.$store.commit('addTask', this.value);
         this.value = '';
       }
     },
