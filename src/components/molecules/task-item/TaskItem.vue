@@ -6,7 +6,7 @@
         :checked="checked"
         :name="'task' + id"
         type="checkbox"
-        classes="w-5 h-5 appearance-none border border-sky-800 rounded-sm checked:bg-cyan-500 checked:p-2"
+        :classes="[{ 'pointer-events-none': !disabled }, checkboxClasses]"
       />
       <input-view
         :id="'task-' + id"
@@ -37,7 +37,7 @@
 import { defineComponent } from 'vue';
 import InputView from '../../atoms/input/InputView.vue';
 import ButtonSvg from '../../atoms/button/ButtonSvg.vue';
-import { TaskItemData } from './task-item.types';
+import { TaskItemData, InputClasses } from './task-item.types';
 
 export default defineComponent({
   name: 'TaskItem',
@@ -63,19 +63,22 @@ export default defineComponent({
   data(): TaskItemData {
     return {
       disabled: true,
-      inputClasses: 'border border-white bg-transparent text-cyan-950 text-xl',
+      inputClasses: InputClasses.textDisabled,
+      checkboxClasses: InputClasses.checkbox,
       focus: false,
       editSvg: 'pencil-thin',
       updatedTask: {
         id: this.id,
-        text: '',
+        text: this.value,
       },
     };
   },
 
   methods: {
     handleTask(): void {
-      this.$store.commit('handleTask', this.id);
+      if (this.disabled) {
+        this.$store.commit('handleTask', this.id);
+      }
     },
 
     deleteTask(): void {
@@ -83,8 +86,9 @@ export default defineComponent({
     },
 
     editTask(): void {
-      this.disabled = false;
-      this.inputClasses = 'border w-full p-1 rounded-sm border-sky-800';
+      this.disabled = !this.disabled;
+      this.inputClasses = !this.disabled ? InputClasses.textActive : InputClasses.textDisabled;
+      this.editSvg = !this.disabled ? 'x-thin' : 'pencil-thin';
     },
 
     confirmEdit(): void {
@@ -92,7 +96,7 @@ export default defineComponent({
         this.$store.commit('updateTask', this.updatedTask);
       }
       this.disabled = true;
-      this.inputClasses = 'border border-white bg-transparent text-cyan-950 text-xl';
+      this.inputClasses = InputClasses.textDisabled;
     },
 
     handleInput(e: Event) {
