@@ -1,13 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import { Task } from './store.types';
 
 Vue.use(Vuex);
-
-export type Task = {
-  id: number;
-  text: string;
-  completed: boolean;
-};
 
 const store = new Vuex.Store<{ tasks: Task[] }>({
   state: {
@@ -40,6 +35,13 @@ const store = new Vuex.Store<{ tasks: Task[] }>({
 
     deleteTask(state, taskId: number): void {
       state.tasks = state.tasks.filter((task: Task) => task.id !== taskId);
+    },
+
+    updateTask(state, { id, text }: Task): void {
+      const updatedTask: Task = state.tasks.filter((task: Task) => task.id === id)[0];
+      if (updatedTask) {
+        updatedTask.text = text;
+      }
     },
   },
   actions: {},

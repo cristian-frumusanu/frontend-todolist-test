@@ -26,7 +26,7 @@ export default defineComponent({
     },
     iconName: {
       type: String,
-      default: 'box',
+      default: '',
     },
     iconColor: {
       type: String,
