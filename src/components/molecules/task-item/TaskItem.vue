@@ -1,12 +1,13 @@
 <template>
   <div class="w-full flex flex-row justify-between items-center gap-2">
     <div class="w-full flex flex-row justify-start items-center gap-2" @click="handleTask">
-      <checkbox-view
+      <input-view
         :id="'checkbox-' + id"
         :checked="checked"
         :name="'task' + id"
         type="checkbox"
-      ></checkbox-view>
+        classes="w-5 h-5 appearance-none border border-sky-800 rounded-sm checked:bg-cyan-500 checked:p-2"
+      ></input-view>
       <input-view
         :id="'task-' + id"
         :value="value"
@@ -31,14 +32,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import CheckboxView from '../../atoms/inputs/input-checkbox/CheckboxView.vue';
-import InputView from '../../atoms/inputs/input-text/InputView.vue';
-import ButtonSvg from '../../atoms/buttons/button-svg/ButtonSvg.vue';
+import InputView from '../../atoms/input/InputView.vue';
+import ButtonSvg from '../../atoms/button/ButtonSvg.vue';
 
 export default defineComponent({
   name: 'TaskItem',
   components: {
-    CheckboxView,
     InputView,
     ButtonSvg,
   },
