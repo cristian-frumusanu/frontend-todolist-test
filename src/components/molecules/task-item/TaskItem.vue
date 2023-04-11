@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full py-2 px-5 border-2 rounded-md flex flex-row justify-between items-center gap-2 bg-white"
+    class="w-full py-2 px-5 border-2 rounded-md flex flex-row justify-between items-center gap-2 bg-[#F7FDFF]"
   >
     <div class="w-full flex flex-row justify-start items-center gap-2" @click="toggleTask">
       <input-view
@@ -76,9 +76,10 @@ export default defineComponent({
   data(): TaskItemData {
     return {
       disabled: true,
-      inputClasses: 'w-full p-2 border border-white bg-white text-cyan-950 text-[calc(.6em+.6vw)]',
+      inputClasses:
+        'w-full p-2 border border-[#F7FDFF] bg-[#F7FDFF] text-cyan-950 text-[calc(.6em+.6vw)]',
       checkboxClasses:
-        'w-[calc(.8em+.7vw)] h-[calc(.8em+.7vw)] appearance-none transition-colors border border-[#35566e] rounded-sm checked:bg-cyan-500 checked:p-2',
+        'w-[calc(.8em+.7vw)] h-[calc(.8em+.7vw)] appearance-none transition-colors border border-[#35566e] rounded-sm checked:bg-[#82C0D8] checked:p-2',
       focus: false,
       editSvg: 'pencil-thin',
       updatedTask: {
@@ -92,6 +93,7 @@ export default defineComponent({
     toggleTask(): void {
       if (this.disabled) {
         this.$store.commit('toggleTask', this.id);
+        this.$emit('toggle-task');
       }
     },
 
@@ -103,7 +105,7 @@ export default defineComponent({
       this.disabled = !this.disabled;
       this.inputClasses = !this.disabled
         ? 'border w-full p-2 rounded-sm border-[#35566e]  text-[calc(.6em+.6vw)] focus:outline-none'
-        : 'w-full p-2 border border-white bg-white text-cyan-950 text-[calc(.6em+.6vw)]';
+        : 'w-full p-2 border border-[#F7FDFF] bg-[#F7FDFF] text-cyan-950 text-[calc(.6em+.6vw)]';
       this.editSvg = !this.disabled ? 'x-thin' : 'pencil-thin';
     },
 
@@ -113,7 +115,7 @@ export default defineComponent({
       }
       this.disabled = true;
       this.inputClasses =
-        'w-full p-2 border border-white bg-white text-cyan-950 text-[calc(.6em+.6vw)]';
+        'w-full p-2 border border-[#F7FDFF] bg-[#F7FDFF] text-cyan-950 text-[calc(.6em+.6vw)]';
     },
 
     handleInput(e: Event) {

@@ -1,7 +1,7 @@
 <template>
   <div
     id="app"
-    class="min-h-screen antialiased text-gray-900 flex flex-col items-center justify-between bg-[url('./assets/cover.png')] bg-no-repeat bg-cover bg-center-center bg-fixed"
+    class="min-h-screen flex flex-col items-center justify-between bg-[url('./assets/cover.png')] bg-no-repeat bg-cover bg-center-center bg-fixed"
   >
     <header-view />
     <home-page />

@@ -26,6 +26,7 @@
       :key="task.id"
       :value="task.text"
       :checked="task.completed"
+      @toggle-task="resetButtonText"
     />
   </div>
 </template>
