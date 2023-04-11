@@ -12,6 +12,7 @@
     :focus="focus"
     @input="onInput"
     @keyup.enter="onEnter"
+    :maxlength="maxLength"
   />
 </template>
 
@@ -62,6 +63,11 @@ export default defineComponent({
       type: Boolean,
       required: false,
       default: false,
+    },
+    maxLength: {
+      type: String,
+      required: false,
+      default: null,
     },
     onInput: {
       type: Function as PropType<(payload: Event) => void>,
