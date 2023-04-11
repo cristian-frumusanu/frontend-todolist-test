@@ -6,7 +6,7 @@
     :name="name"
     :placeholder="placeholder"
     :disabled="disabled"
-    :class="classes"
+    :class="[{ 'line-through': checked }, classes]"
     @input="onInput"
     @keyup.enter="onEnter"
   />
@@ -39,6 +39,11 @@ export default defineComponent({
       type: String,
       default: 'border w-full p-1 rounded-sm border-sky-800',
       required: false,
+    },
+    checked: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     value: {
       type: String,

@@ -1,18 +1,19 @@
 <template>
   <div class="w-full flex flex-row justify-between items-center gap-2">
-    <div class="w-full flex flex-row justify-start items-center gap-2">
+    <div class="w-full flex flex-row justify-start items-center gap-2" @click="handleClick">
       <checkbox-view
-        :id="'task-status' + id"
+        :id="'checkbox-' + id"
         :checked="checked"
         :name="'task' + id"
         type="checkbox"
       ></checkbox-view>
       <input-view
-        :id="'task-item' + id"
+        :id="'task-' + id"
         :value="value"
         name="task-item"
         type="text"
         classes="border-none bg-transparent text-cyan-950 text-xl"
+        :checked="checked"
         disabled
       ></input-view>
     </div>
@@ -24,11 +25,12 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue';
 import CheckboxView from '../../atoms/inputs/input-checkbox/CheckboxView.vue';
 import InputView from '../../atoms/inputs/input-text/InputView.vue';
 import ButtonSvg from '../../atoms/buttons/button-svg/ButtonSvg.vue';
 
-export default {
+export default defineComponent({
   name: 'TaskItem',
   components: {
     CheckboxView,
@@ -49,5 +51,12 @@ export default {
       required: true,
     },
   },
-};
+
+  methods: {
+    handleClick(): void {
+      this.$store.commit('handleTask', this.id);
+      console.log(this.checked);
+    },
+  },
+});
 </script>
