@@ -7,6 +7,7 @@
     :placeholder="placeholder"
     :disabled="disabled"
     :class="[{ 'line-through': type === 'text' && checked }, classes]"
+    :checked="checked"
     @input="onInput"
     @keyup.enter="onEnter"
   />
