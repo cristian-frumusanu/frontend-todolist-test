@@ -1,9 +1,9 @@
 <template>
-  <button :type="type" @click="onClick">
-    <svg v-if="iconName" :id="iconName" :fill="iconColor" :class="classes">
+  <button :type="type" :class="parentClasses" @click="onClick">
+    {{ text }}
+    <svg v-if="iconName" :id="iconName" :fill="iconColor" :class="svgClasses">
       <use :href="assetsPath + '#' + iconName"></use>
     </svg>
-    {{ text }}
   </button>
 </template>
 
@@ -16,7 +16,7 @@ export default defineComponent({
   props: {
     type: {
       type: String as PropType<Button>,
-      required: true,
+      required: false,
       default: 'button',
     },
     text: {
@@ -32,9 +32,14 @@ export default defineComponent({
       type: String,
       default: '#000000',
     },
-    classes: {
+    svgClasses: {
       type: String,
-      default: 'w-12 h-12',
+      default: 'w-6 h-6',
+      required: false,
+    },
+    parentClasses: {
+      type: String,
+      default: '',
       required: false,
     },
     onClick: {

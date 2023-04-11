@@ -4,9 +4,10 @@ import { Task } from './store.types';
 
 Vue.use(Vuex);
 
-const store = new Vuex.Store<{ tasks: Task[] }>({
+const store = new Vuex.Store<{ tasks: Task[]; allDone: boolean }>({
   state: {
     tasks: [],
+    allDone: false,
   },
   getters: {},
   mutations: {
@@ -19,17 +20,17 @@ const store = new Vuex.Store<{ tasks: Task[] }>({
 
     addTask(state, taskText: string): void {
       const newTask = {
-        id: state.tasks.length,
+        id: Math.floor(Math.random() * 1000000),
         text: taskText,
         completed: false,
       };
       state.tasks.push(newTask);
     },
 
-    handleTask(state, taskId: number): void {
-      const completedTask: Task = state.tasks.filter((task: Task) => task.id === taskId)[0];
-      if (completedTask) {
-        completedTask.completed = !completedTask.completed;
+    toggleTask(state, taskId: number): void {
+      const task: Task | undefined = state.tasks.find((task: Task) => task.id === taskId);
+      if (task) {
+        task.completed = !task.completed;
       }
     },
 
@@ -42,6 +43,21 @@ const store = new Vuex.Store<{ tasks: Task[] }>({
       if (updatedTask) {
         updatedTask.text = text;
       }
+    },
+
+    toggleAllTasks(state): void {
+      state.tasks.forEach((task: Task) => (task.completed = !task.completed));
+      state.allDone = !state.allDone;
+    },
+
+    deleteCompletedTasks(state): void {
+      state.tasks = state.tasks.filter((task: Task) => !task.completed);
+      state.allDone = false;
+    },
+
+    deleteAllTasks(state): void {
+      state.tasks = [];
+      state.allDone = false;
     },
   },
   actions: {},

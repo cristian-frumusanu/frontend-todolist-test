@@ -7,7 +7,7 @@
     <text-view tag="h2" classes="text-2xl text-center" text="What would you like to do?" />
     <div class="w-full flex flex-row justify-center items-center">
       <task-input @update-value="saveInputValue" />
-      <button-svg type="submit" icon-name="plus-square-thin" />
+      <button-svg type="submit" icon-name="plus-square-thin" svg-classes="w-12 h-12" />
     </div>
   </form>
 </template>
