@@ -1,13 +1,15 @@
 <template>
   <input
     :id="id"
+    ref="input"
     :value="value"
     :type="type"
     :name="name"
     :placeholder="placeholder"
     :disabled="disabled"
-    :class="[{ 'line-through': type === 'text' && checked }, classes]"
+    :class="classes"
     :checked="checked"
+    :focus="focus"
     @input="onInput"
     @keyup.enter="onEnter"
   />
@@ -15,10 +17,11 @@
 
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue';
-import { Input } from '../atoms.types';
+import { Input, TextInputClass } from '../atoms.types';
 
 export default defineComponent({
   name: 'InputView',
+  inheritAttrs: true,
   props: {
     id: {
       type: String,
@@ -47,10 +50,15 @@ export default defineComponent({
       default: false,
     },
     classes: {
-      type: String,
+      type: [Array, String] as PropType<TextInputClass[] | string>,
       required: true,
     },
     checked: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    focus: {
       type: Boolean,
       required: false,
       default: false,
@@ -62,6 +70,18 @@ export default defineComponent({
     onEnter: {
       type: Function as PropType<(payload: Event) => void>,
       default: () => {},
+    },
+  },
+
+  watch: {
+    disabled(newState: boolean): void {
+      if (!newState) {
+        this.$nextTick(() => {
+          if (this.$refs && this.$refs.input instanceof HTMLInputElement) {
+            this.$refs.input.focus();
+          }
+        });
+      }
     },
   },
 });
