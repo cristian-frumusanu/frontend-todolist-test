@@ -1,6 +1,6 @@
 <template>
   <div class="w-full flex flex-row justify-between items-center gap-2">
-    <div class="w-full flex flex-row justify-start items-center gap-2" @click="handleClick">
+    <div class="w-full flex flex-row justify-start items-center gap-2" @click="handleTask">
       <checkbox-view
         :id="'checkbox-' + id"
         :checked="checked"
@@ -19,7 +19,12 @@
     </div>
     <div class="flex flex-row gap-1">
       <button-svg type="button" icon-name="pencil-thin" classes="w-6 h-6"></button-svg>
-      <button-svg type="button" icon-name="trash-thin" classes="w-6 h-6"></button-svg>
+      <button-svg
+        type="button"
+        icon-name="trash-thin"
+        classes="w-6 h-6"
+        :on-click="deleteTask"
+      ></button-svg>
     </div>
   </div>
 </template>
@@ -53,9 +58,12 @@ export default defineComponent({
   },
 
   methods: {
-    handleClick(): void {
+    handleTask(): void {
       this.$store.commit('handleTask', this.id);
-      console.log(this.checked);
+    },
+
+    deleteTask(): void {
+      this.$store.commit('deleteTask', this.id);
     },
   },
 });
