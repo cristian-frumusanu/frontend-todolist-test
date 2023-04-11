@@ -1,20 +1,21 @@
 <template>
   <button :type="type" @click="onClick">
-    <svg :id="iconName" :fill="iconColor" :class="classes">
+    <svg v-if="iconName" :id="iconName" :fill="iconColor" :class="classes">
       <use :href="assetsPath + '#' + iconName"></use>
     </svg>
+    {{ text }}
   </button>
 </template>
 
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue';
-import { ButtonType } from '../button.types';
+import { Button } from '../atoms.types';
 
 export default defineComponent({
   name: 'ButtonView',
   props: {
     type: {
-      type: String as PropType<ButtonType>,
+      type: String as PropType<Button>,
       required: true,
       default: 'button',
     },
@@ -43,7 +44,7 @@ export default defineComponent({
   },
   data() {
     return {
-      assetsPath: require('../../../../assets/sprite.svg'),
+      assetsPath: require('../../../assets/sprite.svg'),
     };
   },
 });

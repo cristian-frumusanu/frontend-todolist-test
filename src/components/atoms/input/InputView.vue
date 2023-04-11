@@ -2,11 +2,11 @@
   <input
     :id="id"
     :value="value"
-    type="text"
+    :type="type"
     :name="name"
     :placeholder="placeholder"
     :disabled="disabled"
-    :class="[{ 'line-through': checked }, classes]"
+    :class="[{ 'line-through': type === 'text' && checked }, classes]"
     @input="onInput"
     @keyup.enter="onEnter"
   />
@@ -14,12 +14,22 @@
 
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue';
+import { Input } from '../atoms.types';
 
 export default defineComponent({
   name: 'InputView',
   props: {
     id: {
       type: String,
+      required: true,
+    },
+    value: {
+      type: String,
+      default: '',
+      required: false,
+    },
+    type: {
+      type: String as PropType<Input>,
       required: true,
     },
     name: {
@@ -37,18 +47,12 @@ export default defineComponent({
     },
     classes: {
       type: String,
-      default: 'border w-full p-1 rounded-sm border-sky-800',
-      required: false,
+      required: true,
     },
     checked: {
       type: Boolean,
       required: false,
       default: false,
-    },
-    value: {
-      type: String,
-      default: '',
-      required: false,
     },
     onInput: {
       type: Function as PropType<(payload: Event) => void>,
