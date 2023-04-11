@@ -1,6 +1,6 @@
 <template>
   <div v-if="$store.state.tasks.length" class="w-full flex flex-col gap-4">
-    <div class="w-full flex flex-row justify-between mb-2">
+    <div class="w-full flex flex-row justify-between">
       <button-svg
         :text="buttonText"
         icon-name="checks-thin"
@@ -44,7 +44,8 @@ export default defineComponent({
 
   data(): { defaultClasses: string; buttonText: string } {
     return {
-      defaultClasses: 'flex flex-row justify-between gap-2',
+      defaultClasses:
+        'w-[calc(6em+6vw)] flex flex-row justify-center gap-3 bg-[#D0E9F3] p-2 rounded-md transition-colors shadow-sm hover:bg-[#AAD7E9] active:bg-[#82C0D8]',
       buttonText: this.$store.state.allDone ? 'uncheck all' : 'check all',
     };
   },

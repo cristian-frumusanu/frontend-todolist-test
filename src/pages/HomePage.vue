@@ -1,5 +1,5 @@
 <template>
-  <main class="w-1/3 flex flex-col gap-3 justify-center items-center">
+  <main class="w-6/12 flex flex-col gap-3 justify-center items-center">
     <task-form />
     <task-list />
   </main>

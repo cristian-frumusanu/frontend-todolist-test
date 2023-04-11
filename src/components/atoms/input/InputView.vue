@@ -10,9 +10,9 @@
     :class="classes"
     :checked="checked"
     :focus="focus"
+    :maxlength="maxLength"
     @input="onInput"
     @keyup.enter="onEnter"
-    :maxlength="maxLength"
   />
 </template>
 

@@ -4,13 +4,17 @@
       <input-view
         id="task-input"
         name="task-input"
-        classes="border w-full p-1 rounded-sm border-sky-800"
+        classes="border w-full p-2 rounded-md shadow-sm border-[#35566E] text-[#675958] text-[calc(.7em+.6vw)] focus:outline-none focus:border-[#0fa2b6]"
         placeholder="add new task"
         type="text"
         max-length="40"
         :on-input="handleInput"
       />
-      <text-view tag="span" classes="absolute right-3 text-neutral-300" :text="counter + '/40'" />
+      <text-view
+        tag="span"
+        classes="absolute right-3 text-[#A3BED3] text-[calc(.5em+.5vw)]"
+        :text="counter + '/40'"
+      />
     </div>
   </div>
 </template>
