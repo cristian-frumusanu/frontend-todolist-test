@@ -1,6 +1,6 @@
 <template>
   <div class="w-full flex flex-row justify-between items-center gap-2">
-    <div class="w-full flex flex-row justify-start items-center gap-2" @click="handleTask">
+    <div class="w-full flex flex-row justify-start items-center gap-2" @click="toggleTask">
       <input-view
         :id="'checkbox-' + id"
         :checked="checked"
@@ -20,15 +20,9 @@
       />
     </div>
     <div class="flex flex-row gap-1">
-      <button-svg
-        v-if="!disabled"
-        type="button"
-        icon-name="check-thin"
-        classes="w-6 h-6"
-        :on-click="confirmEdit"
-      />
-      <button-svg type="button" :icon-name="editSvg" classes="w-6 h-6" :on-click="editTask" />
-      <button-svg type="button" icon-name="trash-thin" classes="w-6 h-6" :on-click="deleteTask" />
+      <button-svg v-if="!disabled" icon-name="check-thin" :on-click="confirmEdit" />
+      <button-svg type="button" :icon-name="editSvg" :on-click="editTask" />
+      <button-svg icon-name="trash-thin" :on-click="deleteTask" />
     </div>
   </div>
 </template>
@@ -75,9 +69,9 @@ export default defineComponent({
   },
 
   methods: {
-    handleTask(): void {
+    toggleTask(): void {
       if (this.disabled) {
-        this.$store.commit('handleTask', this.id);
+        this.$store.commit('toggleTask', this.id);
       }
     },
 

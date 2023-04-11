@@ -4,9 +4,10 @@ import { Task } from './store.types';
 
 Vue.use(Vuex);
 
-const store = new Vuex.Store<{ tasks: Task[] }>({
+const store = new Vuex.Store<{ tasks: Task[]; allDone: boolean }>({
   state: {
     tasks: [],
+    allDone: false,
   },
   getters: {},
   mutations: {
@@ -26,10 +27,10 @@ const store = new Vuex.Store<{ tasks: Task[] }>({
       state.tasks.push(newTask);
     },
 
-    handleTask(state, taskId: number): void {
-      const completedTask: Task = state.tasks.filter((task: Task) => task.id === taskId)[0];
-      if (completedTask) {
-        completedTask.completed = !completedTask.completed;
+    toggleTask(state, taskId: number): void {
+      const task: Task | undefined = state.tasks.find((task: Task) => task.id === taskId);
+      if (task) {
+        task.completed = !task.completed;
       }
     },
 
@@ -42,6 +43,11 @@ const store = new Vuex.Store<{ tasks: Task[] }>({
       if (updatedTask) {
         updatedTask.text = text;
       }
+    },
+
+    toggleAll(state): void {
+      state.tasks.forEach((task: Task) => (task.completed = !task.completed));
+      state.allDone = !state.allDone;
     },
   },
   actions: {},
