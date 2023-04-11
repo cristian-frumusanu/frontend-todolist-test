@@ -5,10 +5,20 @@
         :text="buttonText"
         icon-name="checks-thin"
         :parent-classes="defaultClasses"
-        :on-click="toggleAll"
+        :on-click="toggleAllTasks"
       />
-      <button-svg text="delete completed" icon-name="trash-thin" :parent-classes="defaultClasses" />
-      <button-svg text="delete all" icon-name="trash-thin" :parent-classes="defaultClasses" />
+      <button-svg
+        text="delete completed"
+        icon-name="trash-thin"
+        :parent-classes="defaultClasses"
+        :on-click="deleteCompletedTasks"
+      />
+      <button-svg
+        text="delete all"
+        icon-name="trash-thin"
+        :parent-classes="defaultClasses"
+        :on-click="deleteAllTasks"
+      />
     </div>
     <task-item
       v-for="task in $store.state.tasks"
@@ -40,8 +50,22 @@ export default defineComponent({
   },
 
   methods: {
-    toggleAll(): void {
-      this.$store.commit('toggleAll');
+    toggleAllTasks(): void {
+      this.$store.commit('toggleAllTasks');
+      this.resetButtonText();
+    },
+
+    deleteCompletedTasks(): void {
+      this.$store.commit('deleteCompletedTasks');
+      this.resetButtonText();
+    },
+
+    deleteAllTasks(): void {
+      this.$store.commit('deleteAllTasks');
+      this.resetButtonText();
+    },
+
+    resetButtonText(): void {
       this.buttonText = this.$store.state.allDone ? 'uncheck all' : 'check all';
     },
   },
