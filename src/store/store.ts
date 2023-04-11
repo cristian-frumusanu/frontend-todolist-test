@@ -32,10 +32,14 @@ const store = new Vuex.Store<{ tasks: Task[] }>({
     },
 
     handleTask(state, taskId: number): void {
-      const completedTask = state.tasks.filter((task: Task) => task.id === taskId)[0];
+      const completedTask: Task = state.tasks.filter((task: Task) => task.id === taskId)[0];
       if (completedTask) {
         completedTask.completed = !completedTask.completed;
       }
+    },
+
+    deleteTask(state, taskId: number): void {
+      state.tasks = state.tasks.filter((task: Task) => task.id !== taskId);
     },
   },
   actions: {},
