@@ -4,7 +4,7 @@
     class="min-h-screen antialiased text-gray-900 flex flex-col items-center justify-between"
   >
     <header-view />
-    <home-view />
+    <home-page />
     <footer-view />
   </div>
 </template>
@@ -13,14 +13,14 @@
 import Vue from 'vue';
 import HeaderView from './components/header/HeaderView.vue';
 import FooterView from './components/footer/FooterView.vue';
-import HomeView from './views/HomeView.vue';
+import HomePage from './pages/HomePage.vue';
 import store from './store/store';
 
 export default Vue.extend({
   name: 'App',
   components: {
     HeaderView,
-    HomeView,
+    HomePage,
     FooterView,
   },
   store: store,
