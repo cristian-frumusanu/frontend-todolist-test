@@ -1,9 +1,9 @@
 <template>
   <div v-if="$store.state.tasks.length" class="w-full flex flex-col gap-4">
     <task-item
-      v-for="(task, index) in $store.state.tasks"
-      :id="index"
-      :key="index"
+      v-for="task in $store.state.tasks"
+      :id="task.id"
+      :key="task.id"
       :value="task.text"
       :checked="task.completed"
     />

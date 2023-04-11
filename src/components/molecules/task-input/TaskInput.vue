@@ -37,6 +37,7 @@ export default defineComponent({
         this.value = e.target.value;
       }
     },
+
     handleClick() {
       if (this.value) {
         this.$store.commit('addTask', this.value);

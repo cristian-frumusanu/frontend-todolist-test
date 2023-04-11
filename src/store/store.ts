@@ -4,6 +4,7 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 export type Task = {
+  id: number;
   text: string;
   completed: boolean;
 };
@@ -20,12 +21,21 @@ const store = new Vuex.Store<{ tasks: Task[] }>({
         this.replaceState(Object.assign(state, JSON.parse(data)));
       }
     },
+
     addTask(state, taskText: string): void {
       const newTask = {
+        id: state.tasks.length,
         text: taskText,
         completed: false,
       };
       state.tasks.push(newTask);
+    },
+
+    handleTask(state, taskId: number): void {
+      const completedTask = state.tasks.filter((task: Task) => task.id === taskId)[0];
+      if (completedTask) {
+        completedTask.completed = !completedTask.completed;
+      }
     },
   },
   actions: {},
