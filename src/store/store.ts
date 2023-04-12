@@ -33,10 +33,10 @@ const store = new Vuex.Store<{ tasks: Task[]; allDone: boolean }>({
         task.completed = !task.completed;
       }
 
-      const uncompletedTasks: Task[] = state.tasks.filter((task: Task) => !task.completed);
+      const uncompletedTasks: Task[] = state.tasks.filter((task: Task) => task.completed === false);
       if (uncompletedTasks.length === 0) {
         state.allDone = true;
-      } else if (uncompletedTasks.length === state.tasks.length && state.allDone) {
+      } else {
         state.allDone = false;
       }
     },
