@@ -1,0 +1,11 @@
+export type Button = 'button' | 'submit';
+
+export type Input = 'text' | 'checkbox';
+
+export type TextInputClass = string | ConditionalClass;
+
+type ConditionalClass = {
+  [key: string]: boolean;
+};
+
+export type Text = 'p' | 'h2' | 'label' | 'span';
