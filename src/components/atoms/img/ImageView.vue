@@ -1,5 +1,5 @@
 <template>
-  <img :class="classes" :src="src" :alt="alt" />
+  <img :class="classes" :src="assetsPath" :alt="alt" />
 </template>
 
 <script lang="ts">
@@ -12,15 +12,20 @@ export default defineComponent({
       type: String,
       required: true,
     },
-    src: {
+    assetName: {
       type: String,
-      default: '../../../assets/logo.png',
-      required: false,
+      required: true,
     },
     alt: {
       type: String,
       required: true,
     },
+  },
+
+  data(): { assetsPath: string } {
+    return {
+      assetsPath: require('../../../assets/' + this.assetName),
+    };
   },
 });
 </script>
