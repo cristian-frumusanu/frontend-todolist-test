@@ -47,7 +47,7 @@ export default defineComponent({
       default: () => {},
     },
   },
-  data() {
+  data(): { assetsPath: string } {
     return {
       assetsPath: require('../../../assets/sprite.svg'),
     };

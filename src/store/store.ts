@@ -19,7 +19,7 @@ const store = new Vuex.Store<{ tasks: Task[]; allDone: boolean }>({
     },
 
     addTask(state, taskText: string): void {
-      const newTask = {
+      const newTask: Task = {
         id: Math.floor(Math.random() * 1000000),
         text: taskText,
         completed: false,
@@ -33,7 +33,7 @@ const store = new Vuex.Store<{ tasks: Task[]; allDone: boolean }>({
         task.completed = !task.completed;
       }
 
-      const uncompletedTasks = state.tasks.filter((task: Task) => !task.completed);
+      const uncompletedTasks: Task[] = state.tasks.filter((task: Task) => !task.completed);
       if (uncompletedTasks.length === 0) {
         state.allDone = true;
       } else if (uncompletedTasks.length === state.tasks.length && state.allDone) {
