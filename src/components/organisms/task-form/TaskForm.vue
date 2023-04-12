@@ -1,13 +1,23 @@
 <template>
   <form
     ref="form"
-    class="w-full flex flex-col justify-center items-center"
+    class="w-full h-fit flex flex-col justify-center items-center mb-2"
     @submit.prevent="addTask"
   >
-    <text-view tag="h2" classes="text-2xl text-center" text="What would you like to do?" />
-    <div class="w-full flex flex-row justify-center items-center">
+    <text-view
+      tag="h2"
+      classes="w-full mb-2 text-[calc(1.2em+1.2vw)] text-center text-[#35566e] max-lg:text-[calc(1.1em+1vw)] max-[390px]:text-[calc(1em+1vw)]"
+      text="What would you like to do?"
+    />
+    <div class="w-full h-[calc(1.2em+1.2vw)] flex flex-row justify-center items-center gap-2">
       <task-input @update-value="saveInputValue" />
-      <button-svg type="submit" icon-name="plus-square-thin" svg-classes="w-12 h-12" />
+      <button-svg
+        type="submit"
+        icon-name="plus-bicolor"
+        icon-color="#D0E9F3"
+        svg-classes="w-full h-full transition-colors hover:fill-[#AAD7E9] active:fill-[#82C0D8]"
+        parent-classes="w-[calc(1.6em+1.6vw)] h-full"
+      />
     </div>
   </form>
 </template>

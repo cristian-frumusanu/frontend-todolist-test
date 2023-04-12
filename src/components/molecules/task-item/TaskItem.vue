@@ -1,6 +1,11 @@
 <template>
-  <div class="w-full flex flex-row justify-between items-center gap-2">
-    <div class="w-full flex flex-row justify-start items-center gap-2" @click="toggleTask">
+  <div
+    class="w-full py-2 rounded-md flex flex-row justify-between items-center gap-2 max-sm:py-1 max-[380px]:gap-1"
+  >
+    <div
+      class="w-full flex flex-row justify-start items-center gap-2 max-sm:gap-1"
+      @click="toggleTask"
+    >
       <input-view
         :id="'checkbox-' + id"
         :checked="checked"
@@ -19,10 +24,27 @@
         :on-input="handleInput"
       />
     </div>
-    <div class="flex flex-row gap-1">
-      <button-svg v-if="!disabled" icon-name="check-thin" :on-click="confirmEdit" />
-      <button-svg type="button" :icon-name="editSvg" :on-click="editTask" />
-      <button-svg icon-name="trash-thin" :on-click="deleteTask" />
+    <div class="flex flex-row gap-2">
+      <button-svg
+        v-if="!disabled"
+        icon-color="#35566E"
+        icon-name="check-thin"
+        parent-classes="hover:animate-[wiggle_2s_linear_infinite]"
+        :on-click="confirmEdit"
+      />
+      <button-svg
+        type="button"
+        icon-color="#35566E"
+        :icon-name="editSvg"
+        parent-classes="hover:animate-[wiggle_2s_linear_infinite]"
+        :on-click="editTask"
+      />
+      <button-svg
+        icon-name="trash-thin"
+        icon-color="#35566E"
+        parent-classes="hover:animate-[wiggle_2s_linear_infinite]"
+        :on-click="deleteTask"
+      />
     </div>
   </div>
 </template>
@@ -31,7 +53,7 @@
 import { defineComponent } from 'vue';
 import InputView from '../../atoms/input/InputView.vue';
 import ButtonSvg from '../../atoms/button/ButtonSvg.vue';
-import { TaskItemData, InputClasses } from './task-item.types';
+import { TaskItemData } from './task-item.types';
 
 export default defineComponent({
   name: 'TaskItem',
@@ -57,8 +79,10 @@ export default defineComponent({
   data(): TaskItemData {
     return {
       disabled: true,
-      inputClasses: InputClasses.textDisabled,
-      checkboxClasses: InputClasses.checkbox,
+      inputClasses:
+        'w-full px-2 border bg-transparent border-transparent text-[#35566e] text-[calc(.7em+.6vw)] disabled:text-[#35566e] max-md:px-1 max-md:text-[calc(.8em+.7vw)]',
+      checkboxClasses:
+        'w-[calc(.8em+.7vw)] h-[calc(.8em+.7vw)] appearance-none transition-colors border border-[#35566e] rounded-sm checked:bg-[#5CB2E3] p-2',
       focus: false,
       editSvg: 'pencil-thin',
       updatedTask: {
@@ -72,6 +96,7 @@ export default defineComponent({
     toggleTask(): void {
       if (this.disabled) {
         this.$store.commit('toggleTask', this.id);
+        this.$emit('toggle-task');
       }
     },
 
@@ -81,7 +106,9 @@ export default defineComponent({
 
     editTask(): void {
       this.disabled = !this.disabled;
-      this.inputClasses = !this.disabled ? InputClasses.textActive : InputClasses.textDisabled;
+      this.inputClasses = !this.disabled
+        ? 'border w-full px-2 rounded-sm border-[#35566e]  text-[calc(.6em+.6vw)] focus:outline-none'
+        : 'w-full px-2 border bg-transparent border-transparent text-[#35566e] text-[calc(.7em+.6vw)] disabled:text-[#35566e] max-md:px-1 max-md:text-[calc(.8em+.7vw)]';
       this.editSvg = !this.disabled ? 'x-thin' : 'pencil-thin';
     },
 
@@ -90,7 +117,8 @@ export default defineComponent({
         this.$store.commit('updateTask', this.updatedTask);
       }
       this.disabled = true;
-      this.inputClasses = InputClasses.textDisabled;
+      this.inputClasses =
+        'w-full px-2 border bg-transparent border-transparent text-[#35566e] text-[calc(.7em+.6vw)] disabled:text-[#35566e] text-[calc(.7em+.6vw)] max-md:px-1 max-md:text-[calc(.8em+.7vw)]';
     },
 
     handleInput(e: Event) {

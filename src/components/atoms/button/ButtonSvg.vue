@@ -34,7 +34,7 @@ export default defineComponent({
     },
     svgClasses: {
       type: String,
-      default: 'w-6 h-6',
+      default: 'w-6 h-6 max-md:w-[calc(.9em+.8vw)] max-md:h-[calc(.9em+.8vw)]',
       required: false,
     },
     parentClasses: {

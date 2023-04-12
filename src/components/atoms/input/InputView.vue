@@ -10,6 +10,8 @@
     :class="classes"
     :checked="checked"
     :focus="focus"
+    :maxlength="maxLength"
+    autocomplete="off"
     @input="onInput"
     @keyup.enter="onEnter"
   />
@@ -62,6 +64,11 @@ export default defineComponent({
       type: Boolean,
       required: false,
       default: false,
+    },
+    maxLength: {
+      type: String,
+      required: false,
+      default: null,
     },
     onInput: {
       type: Function as PropType<(payload: Event) => void>,
