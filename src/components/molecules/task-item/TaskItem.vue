@@ -1,8 +1,11 @@
 <template>
   <div
-    class="w-full py-2 px-5 border-2 rounded-md flex flex-row justify-between items-center gap-2 bg-[#F7FDFF]"
+    class="w-full py-2 rounded-md flex flex-row justify-between items-center gap-2 max-sm:py-1 max-[380px]:gap-1"
   >
-    <div class="w-full flex flex-row justify-start items-center gap-2" @click="toggleTask">
+    <div
+      class="w-full flex flex-row justify-start items-center gap-2 max-sm:gap-1"
+      @click="toggleTask"
+    >
       <input-view
         :id="'checkbox-' + id"
         :checked="checked"
@@ -77,7 +80,7 @@ export default defineComponent({
     return {
       disabled: true,
       inputClasses:
-        'w-full p-2 border border-[#F7FDFF] bg-[#F7FDFF] text-cyan-950 text-[calc(.6em+.6vw)]',
+        'w-full px-2 border bg-transparent border-transparent text-cyan-950 text-[calc(.6em+.6vw)] max-md:px-1',
       checkboxClasses:
         'w-[calc(.8em+.7vw)] h-[calc(.8em+.7vw)] appearance-none transition-colors border border-[#35566e] rounded-sm checked:bg-[#82C0D8] checked:p-2',
       focus: false,
@@ -104,8 +107,8 @@ export default defineComponent({
     editTask(): void {
       this.disabled = !this.disabled;
       this.inputClasses = !this.disabled
-        ? 'border w-full p-2 rounded-sm border-[#35566e]  text-[calc(.6em+.6vw)] focus:outline-none'
-        : 'w-full p-2 border border-[#F7FDFF] bg-[#F7FDFF] text-cyan-950 text-[calc(.6em+.6vw)]';
+        ? 'border w-full px-2 rounded-sm border-[#35566e]  text-[calc(.6em+.6vw)] focus:outline-none'
+        : 'w-full px-2 border bg-transparent border-transparent text-cyan-950 text-[calc(.6em+.6vw)] max-md:px-1';
       this.editSvg = !this.disabled ? 'x-thin' : 'pencil-thin';
     },
 
@@ -115,7 +118,7 @@ export default defineComponent({
       }
       this.disabled = true;
       this.inputClasses =
-        'w-full p-2 border border-[#F7FDFF] bg-[#F7FDFF] text-cyan-950 text-[calc(.6em+.6vw)]';
+        'w-full px-2 border bg-transparent border-transparent text-cyan-950 text-[calc(.6em+.6vw)] max-md:px-1';
     },
 
     handleInput(e: Event) {

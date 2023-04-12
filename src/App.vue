@@ -1,7 +1,7 @@
 <template>
   <div
     id="app"
-    class="min-h-screen flex flex-col items-center justify-between bg-[url('./assets/cover.png')] bg-no-repeat bg-cover bg-center-center bg-fixed"
+    class="w-full min-h-screen grid grid-rows-[80px_1fr_80px] space-between place-items-center bg-[url('./assets/background.jpg')] bg-no-repeat bg-cover bg-center-center bg-fixed"
   >
     <header-view />
     <home-page />

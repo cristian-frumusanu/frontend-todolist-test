@@ -6,7 +6,7 @@
   >
     <text-view
       tag="h2"
-      classes="w-full mb-2 text-[calc(1.2em+1.2vw)] text-center text-[#35566e]"
+      classes="w-full mb-2 text-[calc(1.2em+1.2vw)] text-center text-[#35566e] max-lg:text-[calc(1.1em+1vw)] max-[390px]:text-[calc(1em+1vw)]"
       text="What would you like to do?"
     />
     <div class="w-full h-[calc(1.2em+1.2vw)] flex flex-row justify-center items-center gap-2">
