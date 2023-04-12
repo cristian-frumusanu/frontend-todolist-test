@@ -14,6 +14,11 @@
     font-family: 'Architects Daughter', system-ui, sans-serif;
   }
 
+  input:disabled {
+    -webkit-text-fill-color: #35566e;
+    opacity: 1; 
+  }
+
   @keyframes wiggle {
     0%,
     7% {

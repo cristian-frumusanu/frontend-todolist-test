@@ -1,5 +1,5 @@
 <template>
-  <component :is="tag" :class="classes" :for="renderLabel">
+  <component :is="tag" :class="classes">
     {{ text }}
   </component>
 </template>
@@ -22,17 +22,6 @@ export default defineComponent({
     classes: {
       type: String,
       required: true,
-    },
-    for: {
-      type: String,
-      default: null,
-      required: false,
-    },
-  },
-
-  computed: {
-    renderLabel(): string | null {
-      return this.tag === 'label' ? this.for : null;
     },
   },
 });

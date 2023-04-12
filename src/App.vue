@@ -11,8 +11,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import HeaderView from './components/static/header/HeaderView.vue';
-import FooterView from './components/static/footer/FooterView.vue';
+import HeaderView from './components/molecules/header/HeaderView.vue';
+import FooterView from './components/molecules/footer/FooterView.vue';
 import HomePage from './pages/HomePage.vue';
 import store from './store/store';
 
