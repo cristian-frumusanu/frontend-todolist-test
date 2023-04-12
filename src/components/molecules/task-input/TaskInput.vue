@@ -4,7 +4,7 @@
       <input-view
         id="task-input"
         name="task-input"
-        classes="border w-full p-2 rounded-md shadow-sm border-[#35566E] text-[#675958] placeholder:text-[calc(.7em+.6vw)] text-[calc(.7em+.6vw)] focus:outline-none focus:border-[#0fa2b6] max-lg:py-1 max-md:text-[calc(.6em+.5vw)]"
+        classes="border w-full p-2 rounded-md shadow-sm border-[#35566E] text-[#675958] placeholder:text-[calc(.7em+.6vw)] text-[calc(.7em+.6vw)] focus:outline-none focus:border-[#0fa2b6] max-sm:text-[calc(.8em+.7vw)]"
         placeholder="add new task"
         type="text"
         max-length="40"

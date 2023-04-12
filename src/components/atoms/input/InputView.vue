@@ -11,6 +11,7 @@
     :checked="checked"
     :focus="focus"
     :maxlength="maxLength"
+    autocomplete="off"
     @input="onInput"
     @keyup.enter="onEnter"
   />

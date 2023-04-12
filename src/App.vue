@@ -1,7 +1,7 @@
 <template>
   <div
     id="app"
-    class="w-full min-h-screen grid grid-rows-[80px_1fr_80px] gap-10 space-between place-items-center bg-[url('./assets/background.jpg')] bg-no-repeat bg-cover bg-center-center bg-fixed max-xl:gap-8 max-lg:gap-5 max-md:gap-3 max-sm:gap-2"
+    class="w-full min-h-screen grid grid-rows-[80px_1fr_80px] gap-10 space-between place-items-center bg-[url('./assets/background.jpg')] bg-no-repeat bg-cover bg-center-center bg-fixed max-lg:min-h-full max-xl:gap-8 max-lg:gap-5 max-md:gap-3 max-sm:gap-2"
   >
     <header-view />
     <home-page />

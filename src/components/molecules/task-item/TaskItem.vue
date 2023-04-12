@@ -80,9 +80,9 @@ export default defineComponent({
     return {
       disabled: true,
       inputClasses:
-        'w-full px-2 border bg-transparent border-transparent text-cyan-950 text-[calc(.6em+.6vw)] max-md:px-1',
+        'w-full px-2 border bg-transparent border-transparent text-[#35566e] text-[calc(.7em+.6vw)] disabled:text-[#35566e] max-md:px-1 max-md:text-[calc(.8em+.7vw)]',
       checkboxClasses:
-        'w-[calc(.8em+.7vw)] h-[calc(.8em+.7vw)] appearance-none transition-colors border border-[#35566e] rounded-sm checked:bg-[#5CB2E3] checked:p-2',
+        'w-[calc(.8em+.7vw)] h-[calc(.8em+.7vw)] appearance-none transition-colors border border-[#35566e] rounded-sm checked:bg-[#5CB2E3] p-2',
       focus: false,
       editSvg: 'pencil-thin',
       updatedTask: {
@@ -108,7 +108,7 @@ export default defineComponent({
       this.disabled = !this.disabled;
       this.inputClasses = !this.disabled
         ? 'border w-full px-2 rounded-sm border-[#35566e]  text-[calc(.6em+.6vw)] focus:outline-none'
-        : 'w-full px-2 border bg-transparent border-transparent text-cyan-950 text-[calc(.6em+.6vw)] max-md:px-1';
+        : 'w-full px-2 border bg-transparent border-transparent text-[#35566e] text-[calc(.7em+.6vw)] disabled:text-[#35566e] max-md:px-1 max-md:text-[calc(.8em+.7vw)]';
       this.editSvg = !this.disabled ? 'x-thin' : 'pencil-thin';
     },
 
@@ -118,7 +118,7 @@ export default defineComponent({
       }
       this.disabled = true;
       this.inputClasses =
-        'w-full px-2 border bg-transparent border-transparent text-cyan-950 text-[calc(.6em+.6vw)] max-md:px-1';
+        'w-full px-2 border bg-transparent border-transparent text-[#35566e] text-[calc(.7em+.6vw)] disabled:text-[#35566e] text-[calc(.7em+.6vw)] max-md:px-1 max-md:text-[calc(.8em+.7vw)]';
     },
 
     handleInput(e: Event) {

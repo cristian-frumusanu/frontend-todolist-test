@@ -3,8 +3,10 @@
 @tailwind utilities;
 
 @layer base {
-  html {
+  html,
+  body {
     font-family: 'Walter Turncoat', system-ui, sans-serif;
+    height: 100%;
   }
 
   input,

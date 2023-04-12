@@ -49,7 +49,7 @@ export default defineComponent({
   data(): { defaultBtnClasses: string; buttonText: string; svgClasses: string } {
     return {
       defaultBtnClasses:
-        'w-[calc(6em+5vw)] p-1 flex flex-row justify-center items-center bg-[#D0E9F3] gap-2 rounded-md transition-colors shadow-sm text-[calc(.5em+.5vw)] hover:bg-[#AAD7E9] active:bg-[#82C0D8] max-xl:w-[calc(7em+6vw)] max-md:w-[calc(8em+7vw)] max-md:gap-1 max-[500px]:leading-none max-[390px]:w-[calc(7em+6vw)]',
+        'w-[calc(6em+5vw)] p-1 flex flex-row justify-center items-center bg-[#D0E9F3] gap-2 rounded-md transition-colors shadow-sm text-[calc(.5em+.5vw)] hover:bg-[#AAD7E9] active:bg-[#82C0D8] max-xl:w-[calc(7em+6vw)] max-md:w-[calc(8em+7vw)] max-md:gap-1 max-[500px]:text-[calc(.6em+.5vw)] max-[500px]:leading-none max-[500px]:w-[calc(7em+7vw)] max-[380px]:w-[calc(6em+6vw)]',
       buttonText: this.$store.state.allDone ? 'uncheck all' : 'check all',
       svgClasses:
         'w-[calc(.7em+.6vw)] h-[calc(.7em+.6vw)] max-md:w-[calc(.7em+.7vw)] max-md:h-[calc(.7em+.7vw)]',
