@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <p>This is footer</p>
+    <p class="text-[calc(.5em+.5vw)]">2023 - Elena Lukashova x DriveK</p>
   </footer>
 </template>
 

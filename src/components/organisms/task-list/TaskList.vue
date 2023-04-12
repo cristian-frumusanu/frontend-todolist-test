@@ -1,6 +1,6 @@
 <template>
   <div v-if="$store.state.tasks.length" class="w-full flex flex-col gap-2">
-    <div class="w-full flex flex-row justify-between max-lg:gap-1">
+    <div class="w-full mb-1 flex flex-row justify-between max-lg:gap-1">
       <button-svg
         :text="buttonText"
         icon-name="checks-thin"

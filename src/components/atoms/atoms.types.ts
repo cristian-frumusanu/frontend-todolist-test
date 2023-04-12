@@ -8,4 +8,4 @@ type ConditionalClass = {
   [key: string]: boolean;
 };
 
-export type Text = 'h1' | 'h2' | 'label' | 'span';
+export type Text = 'p' | 'h2' | 'label' | 'span';

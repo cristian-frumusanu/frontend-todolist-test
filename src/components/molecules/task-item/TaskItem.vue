@@ -82,7 +82,7 @@ export default defineComponent({
       inputClasses:
         'w-full px-2 border bg-transparent border-transparent text-cyan-950 text-[calc(.6em+.6vw)] max-md:px-1',
       checkboxClasses:
-        'w-[calc(.8em+.7vw)] h-[calc(.8em+.7vw)] appearance-none transition-colors border border-[#35566e] rounded-sm checked:bg-[#82C0D8] checked:p-2',
+        'w-[calc(.8em+.7vw)] h-[calc(.8em+.7vw)] appearance-none transition-colors border border-[#35566e] rounded-sm checked:bg-[#5CB2E3] checked:p-2',
       focus: false,
       editSvg: 'pencil-thin',
       updatedTask: {
