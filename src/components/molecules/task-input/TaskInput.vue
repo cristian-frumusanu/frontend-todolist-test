@@ -7,13 +7,13 @@
         classes="border w-full p-2 rounded-md shadow-sm border-[#35566E] text-[#675958] placeholder:text-[calc(.7em+.6vw)] text-[calc(.7em+.6vw)] focus:outline-none focus:border-[#0fa2b6] max-sm:text-[calc(.8em+.7vw)]"
         placeholder="add new task"
         type="text"
-        max-length="40"
+        max-length="30"
         :on-input="handleInput"
       />
       <text-view
         tag="span"
         classes="absolute right-3 text-[#A3BED3] text-[calc(.5em+.5vw)]"
-        :text="counter + '/40'"
+        :text="counter + '/30'"
       />
     </div>
   </div>
@@ -31,17 +31,17 @@ export default defineComponent({
     TextView,
   },
 
-  data(): { counter: number } {
-    return {
-      counter: 0,
-    };
+  props: {
+    counter: {
+      type: Number,
+      required: true,
+    },
   },
 
   methods: {
     handleInput(e: Event) {
       if (e instanceof InputEvent && e.target instanceof HTMLInputElement) {
         this.$emit('update-value', e.target.value);
-        this.counter = e.target.value.length;
       }
     },
   },

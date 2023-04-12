@@ -10,7 +10,7 @@
       text="What would you like to do?"
     />
     <div class="w-full h-[calc(1.2em+1.2vw)] flex flex-row justify-center items-center gap-2">
-      <task-input @update-value="saveInputValue" />
+      <task-input :counter="counter" @update-value="saveInputValue" />
       <button-svg
         type="submit"
         icon-name="plus-bicolor"
@@ -36,15 +36,17 @@ export default defineComponent({
     ButtonSvg,
   },
 
-  data(): { value: string } {
+  data(): { value: string; counter: number } {
     return {
       value: '',
+      counter: 0,
     };
   },
 
   methods: {
     saveInputValue(value: string): void {
       this.value = value;
+      this.counter = value.length;
     },
 
     addTask(): void {
@@ -57,6 +59,7 @@ export default defineComponent({
     resetForm(): void {
       if (this.$refs.form && this.$refs.form instanceof HTMLFormElement) {
         this.$refs.form.reset();
+        this.counter = 0;
       }
     },
   },
